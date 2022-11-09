@@ -6,6 +6,8 @@ A tool that uses OCR to catalogue and help you find that one meme you really rea
 - install tesseract from [here](https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-w64-setup-v5.2.0.20220712.exe)
 (more info: [tesseract git hub page](https://github.com/UB-Mannheim/tesseract/wiki))
 - place all the files from inside the `C:\Program Files\Tesseract-OCR` folder into the `tesseract-ocr` folder in the meme-indexer folder here.
+![image](https://user-images.githubusercontent.com/99981273/200841337-3609d9f1-a38c-4e00-9e04-a9646bd8fa0f.png)
+
 - place all your memes in the 'memes' folder `(custom paths planned for future)`
 - run `python search_memes.py` !
 ## Todo:
