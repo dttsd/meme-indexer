@@ -3,3 +3,4 @@ venv/
 memes/*
 data_index.json
 /tesseract-ocr/*
+__pycache__/

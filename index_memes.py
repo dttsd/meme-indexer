@@ -9,8 +9,10 @@ def parse_meme_config():
     with open("config.txt", "r") as txt_file:
         for line in txt_file.readlines():
             stripped = line.strip().replace('"', '')
+            # ignore comments
             if stripped.startswith('#'):
                 continue
+            
             list_of_meme_paths.append(stripped)
 
     return list_of_meme_paths
