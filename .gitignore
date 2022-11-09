@@ -1,0 +1,5 @@
+venv/
+*.pyc
+memes/*
+data_index.json
+/tesseract-ocr/*
