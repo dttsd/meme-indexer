@@ -4,33 +4,51 @@ import os
 import json
 import re
 
+def parse_meme_config():
+    list_of_meme_paths = []
+    with open("config.txt", "r") as txt_file:
+        for line in txt_file.readlines():
+            stripped = line.strip().replace('"', '')
+            if stripped.startswith('#'):
+                continue
+            list_of_meme_paths.append(stripped)
+
+    return list_of_meme_paths
+
+
 tess.pytesseract.tesseract_cmd = r'./tesseract-ocr/tesseract.exe'
-meme_path = r"./memes/"
+meme_paths = parse_meme_config()
+print("loaded meme paths: ", meme_paths)
 
 def main():
     img_text_dict = {}
 
     # OCR from image
     print("collecting files and scanning text")
-    for root, dirs, files in os.walk(meme_path):
-        for file in files:
-            # calc path
-            newpath=os.path.join(root,file)
-            print(newpath, end="")
+    def walk_meme_path(meme_path):
+        for root, dirs, files in os.walk(meme_path):
+            for file in files:
+                # calc path
+                newpath=os.path.join(root,file)
+                print(newpath, end="")
 
-            # get text from inside image
-            tess_string = tess.image_to_string(newpath).replace('\n', '').strip()
+                # get text from inside image
+                tess_string = tess.image_to_string(newpath).replace('\n', '').strip()
 
-            # replace so only alphanumeric and spaces
-            clean_string = re.sub(r'[^a-zA-Z0-9]+', ' ', tess_string)
+                # replace so only alphanumeric and spaces
+                clean_string = re.sub(r'[^a-zA-Z0-9]+', ' ', tess_string)
 
-            # remove capitals
-            clean_string = clean_string.lower()
+                # remove capitals
+                clean_string = clean_string.lower()
 
-            print(f" : {clean_string}")
+                print(f" : {clean_string}")
 
-            # add to dict
-            img_text_dict[newpath] = clean_string
+                # add to dict
+                img_text_dict[newpath] = clean_string
+
+    for meme_path in meme_paths:
+        print("scanning through meme directory", meme_path)
+        walk_meme_path(meme_path)
 
     # print("printing tessdict")
     # for key,val in img_text_dict.items():

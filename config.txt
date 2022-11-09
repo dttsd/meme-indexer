@@ -1,0 +1,2 @@
+# PUT YOUR MEME PATHS BELOW (one for each line)
+.\memes\
