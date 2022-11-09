@@ -4,3 +4,4 @@ memes/*
 data_index.json
 /tesseract-ocr/*
 __pycache__/
+config.txt
