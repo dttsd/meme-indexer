@@ -16,3 +16,4 @@ Whenever you add more memes into folder, remember to run `python index_memes.py`
 - [x] Dictionary of file path+name to text tags inside image 
 - [x] Implement search, select from top selected (0,1,2,...) and it will open windows explorer at that file path
 - [ ] Multiprocess / async the OCR step for multiple files
+- [ ] Smarter index updating, based on file name updates (to prevent redoing OCR on an entire library)
